@@ -71,6 +71,7 @@ export default {
     await this.setCatalogList();
     this.initActive();
     // 函数节流指某个函数在一定时间间隔内（50毫秒）只执行一次，在这50毫秒 无视后来产生的函数调用请求，也不会延长时间间隔，50毫秒间隔结束后第一次遇到新的函数调用会触发执行
+    // window.addEventListener("scroll", throttle(this.scrollHandle, 1));
     window.addEventListener("scroll", throttle(this.scrollHandle, 1));
     setTimeout(() => {
       this.setWatcher();
@@ -93,12 +94,12 @@ export default {
       if (this.active === ref) return;
       // 点击title 会触发scroll事件,在内容高度不够的情况下点击的title和active的title会有出入
       // 所以点击的时候先return掉scroll事件
-      this.isClick = true;
+      // this.isClick = true;
 
-      document.documentElement.scrollTop = this.refTopMap[ref];
-      setTimeout(() => {
-        this.isClick = false;
-      }, 50);
+      document.documentElement.scrollTop = this.refTopMap[ref] + 545;
+      // setTimeout(() => {
+      //   this.isClick = false;
+      // }, 50);
       // this.active = ref;
     },
     // 获取ref的dom
@@ -133,27 +134,18 @@ export default {
     },
     // scroll事件
     scrollHandle() {
-      console.log("scrollHandle方法");
-      if (this.isClick) return;
+      // if (this.isClick) return;
+
       const scrollTop = document.documentElement.scrollTop;
-      if (scrollTop === 0) {
-        this.initActive();
-        return;
-      }
-      console.log(scrollTop, "scrollTop");
-      if (scrollTop < 596) {
-        // document.querySelector(".main").style.position = "relative";
-        document.querySelector(".side-catalog").style.position = "absolute";
-        document.querySelector(".side-catalog").style.top = "10px";
-        document.querySelector(".side-catalog").style.left = "1160px";
+      console.log(scrollTop);
+      if (scrollTop > 545) {
+        document.querySelector(".side-catalog").classList.add("aaa");
       } else {
-        document.querySelector(".side-catalog").style.position = "fixed";
-        document.querySelector(".side-catalog").style.top = "80px";
-        document.querySelector(".side-catalog").style.left = "1160px";
+        document.querySelector(".side-catalog").classList.remove("aaa");
       }
       console.log(this.reverseCatalogList, "this.reverseCatalogList");
       this.reverseCatalogList.some((item) => {
-        if (scrollTop >= item.offsetTop) {
+        if (scrollTop >= item.offsetTop + 466) {
           this.active = item.ref;
           return true;
         }
@@ -194,6 +186,7 @@ export default {
     catalogForDom() {
       console.log("catalogForDom方法");
       let headlevel = {};
+      debugger;
       this.headList.forEach((item, index) => {
         headlevel[item] = index + 1;
       });

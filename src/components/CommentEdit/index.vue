@@ -1,6 +1,36 @@
 <template>
   <div class="comment-edit">
-    <div class="content" contenteditable="true"></div>
+    <div class="edit">
+      <textarea placeholder="发布你的评论" style="height: 24px"></textarea>
+    </div>
+    <div class="woo-box-flex woo-box-alignCenter">
+      <div class="Composer_iconbox2_l4gXj">
+        <div class="woo-box-item-inlineBlock Composer_iconitem_2JJIh">
+          <div
+            class="wbpro-iconbed woo-box-flex woo-box-alignCenter woo-box-justifyCenter"
+          >
+            <i class="fas fa-clock ai"></i>
+          </div>
+        </div>
+      </div>
+      <div class="woo-box-item-flex" style="align-self: center">
+        <label class="woo-checkbox-main Composer_check_1EUSi"
+          ><input type="checkbox" class="woo-checkbox-input" /><span
+            class="woo-checkbox-shadow"
+          ></span
+          ><span class="woo-checkbox-text">同时转发</span></label
+        >
+      </div>
+      <button
+        class="disabled woo-button-main woo-button-flat woo-button-primary woo-button-m woo-button-round Composer_btn_2XFOD"
+        disabled="disabled"
+      >
+        <span class="woo-button-wrap"
+          ><span class="woo-button-content">评论</span></span
+        >
+      </button>
+    </div>
+    <!-- <div class="content" contenteditable="true"></div> -->
     <div class="action">
       <div>
         <a class="clickEmoji" href="javascript:;" @click.stop="click">
@@ -152,6 +182,7 @@ export default {
   display: none;
 }
 .comment-edit {
+  margin-top: 20px;
   width: 100%;
 }
 .content {
@@ -220,5 +251,114 @@ img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
+}
+.edit {
+  padding: 6px 11px;
+  background: #f0f1f4;
+  border: 1px solid #f0f1f4;
+  border-radius: 8px;
+  line-height: 0;
+}
+.edit textarea {
+  line-height: 24px;
+  font-size: 14px;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  min-height: 24px;
+  max-height: 456px;
+  resize: none;
+}
+
+.Composer_mar1_ujs0j {
+  margin: 10px 0 0;
+}
+.woo-box-alignCenter {
+  align-items: center;
+  display: flex;
+}
+.woo-box-item-flex {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.wbpro-iconbed {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.woo-box-justifyCenter {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.woo-box-alignCenter {
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+}
+.woo-box-flex {
+  margin: 0 14px 0 0;
+  display: flex;
+}
+.Composer_check_1EUSi {
+  position: relative;
+  top: -3px;
+  margin-left: 8px;
+  font-size: 16px;
+}
+.woo-box-item-flex,
+.woo-box-item-inlineBlock {
+  box-sizing: border-box;
+}
+.woo-box-item-flex {
+  align-self: stretch;
+  flex: 1;
+}
+.woo-checkbox-input {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.woo-checkbox-text {
+  margin-left: 5px;
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+body .woo-checkbox-shadow {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  color: #838383;
+}
+.woo-checkbox-shadow {
+  border: 1px solid;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
 }
 </style>
